@@ -1,10 +1,9 @@
-// Get the game board element
+
 const gameBoard = document.querySelector('#game-board');
 
-// Array of letters to be used as card faces
+
 const letters = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'];
 
-// Shuffle the letters array
 function shuffleCards() {
   for (let i = letters.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -12,7 +11,7 @@ function shuffleCards() {
   }
 }
 
-// Create the game cards
+
 function createCards() {
   shuffleCards();
 
@@ -53,15 +52,15 @@ function flipCard() {
   }
 }
 
-// Check if the two flipped cards match
+
 function checkMatch() {
   if (firstCard.querySelector('.card-back').textContent === secondCard.querySelector('.card-back').textContent) {
-    // Cards match, keep them flipped
+    
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
     resetCards();
   } else {
-    // Cards don't match, flip them back
+  
     setTimeout(() => {
       firstCard.classList.remove('flipped');
       secondCard.classList.remove('flipped');
@@ -75,5 +74,5 @@ function resetCards() {
   isLocked = false;
 }
 
-// Start the game
+
 createCards();
